@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <img src="images/lampada.jpg" alt="" id="lampada">
+
+    <img src="images/lampada.jpg" alt="" id="lampadahover">
+
+</body>
+<script>
+let lampada = document.querySelector('#lampada');
+let lampadahover = document.querySelector('#lampadahover');
+let valor = false;
+let valors = false;
+lampada.addEventListener('click', () =>{
+    if(!valor){
+        lampada.src = 'images/lampada-on.jpg'
+        valor = true;
+    }else{
+        lampada.src = 'images/lampada.jpg'   
+        valor = false;
+    }
+})
+lampadahover.addEventListener('mouseover', () =>{
+    if(!valors){
+        lampadahover.src = 'images/lampada-on.jpg'
+        valors = true;
+    }else{
+        lampadahover.src = 'images/lampada.jpg'   
+        valors = false;
+    }
+})
+</script>
+</html>
