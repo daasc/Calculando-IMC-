@@ -4,35 +4,73 @@
     <meta charset="UTF-8" />
     <title>Aparecida Nutrição</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/index.css" />
   </head>
   <body>
-    <header>
-    </header>
+    <header></header>
+    <span class="alert">
+    </span>
     <main>
       <section class="container">
         <h2>Meus pacientes</h2>
-        <h2 id="titulo-form">Adicionar novo paciente</h2>
-        <form id="form-adicionar">
-            <div class="grupo">
-                <label for="nome">Nome:</label>
-                <input id="nome" name="nome" type="text" placeholder="digite o nome do seu paciente" class="campo">
-            </div>
-            <div class="grupo">
-                <label for="peso">Peso:</label>
-                <input id="peso" name="peso" type="text" placeholder="digite o peso do seu paciente" class="campo campo-medio">
-            </div>
-            <div class="grupo">
-                <label for="altura">Altura:</label>
-                <input id="altura" name="altura" type="text" placeholder="digite a altura do seu paciente" class="campo campo-medio">
-            </div>
-            <div class="grupo">
-                <label for="gordura">% de Gordura:</label>
-                <input id="gordura" name="gordura" type="text" placeholder="digite a porcentagem de gordura do seu paciente" class="campo campo-medio">
-            </div>
-            <button id="adicionar-paciente" class="botao bto-principal">Adicionar</button>
+        <h2 id="form__title">Adicionar novo paciente</h2>
+        <form class="form" data-form>
+          <fieldset class="form-control">
+            <label for="nome">Nome:</label>
+            <input
+              id="nome"
+              name="nome"
+              type="text"
+              data-form-name
+              class="input__text"
+              placeholder="Informe seu nome"
+              required
+            />
+          </fieldset>
+          <fieldset class="form-control">
+            <label for="peso">Peso:</label>
+            <input
+              id="peso"
+              name="peso"
+              data-form-peso
+              type="text"
+              class="input__text"
+              placeholder="Informe seu peso"
+              required
+            />
+          </fieldset>
+          <fieldset class="form-control">
+            <label for="altura">Altura:</label>
+            <input
+              id="altura"
+              name="altura"
+              data-form-altura
+              type="text"
+              class="input__text"
+              placeholder="Informe sua altura"
+              required
+            />
+          </fieldset>
+          <fieldset class="form-control">
+            <label for="gordura">% de Gordura:</label>
+            <input
+              id="gordura"
+              name="gordura"
+              type="text"
+              data-form-gordura
+              class="input__text"
+              placeholder="Informe seu percentua de gordura"
+              required
+            />
+          </fieldset>
+          <button type="submit" data-form-button class="button btn-">
+            Adicionar
+          </button>
         </form>
-        <table>
+      </section>
+      <section class="data">
+        <h2>Dados dos Pacientes</h2>
+        <table class="table">
           <thead>
             <tr>
               <th>Nome</th>
@@ -68,10 +106,9 @@
             </tr>
           </tbody>
         </table>
-    </section>
+      </section>
     </main>
+    <script type="module" src="./assets/js/main.js"></script>
+    <script src="./assets/js/removendo.js"></script>
   </body>
 </html>
-<script src="js/principal.js"></script>
-<script src="js/form.js"></script>
-<script src="js/removendo.js"></script>
