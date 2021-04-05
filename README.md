@@ -1,3 +1,3 @@
 # IMC do Paciente
 Surge
-[http://orange-song.surge.sh]
+[imc-paciente.surge.sh]
