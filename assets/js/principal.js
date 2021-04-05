@@ -1,19 +1,42 @@
-const pacientes = document.querySelectorAll(".paciente");
-let pcpeso, pcaltura, imcs;
+let pcpeso, pcaltura, imcs, level;
 let valido = true;
-for (let i = 0; i < pacientes.length; i++) {
-  pcpeso = converterStringOfInt(
-    pacientes[i].querySelector(".info-peso").textContent
-  );
-  pcaltura = converterStringOfInt(
-    pacientes[i].querySelector(".info-altura").textContent
-  );
-  imcs = pacientes[i].querySelector(".info-imc");
-  imcs.textContent = validacao(pcpeso, pcaltura, i);
-}
+export function principal () {
+  const pacientes = document.querySelectorAll(".paciente");
+  console.log(pacientes.length);
+  for (let i = 0; i < pacientes.length; i++) {
+    pcpeso = converterStringOfInt(
+      pacientes[i].querySelector(".info-peso").textContent
+    );
+    pcaltura = converterStringOfInt(
+      pacientes[i].querySelector(".info-altura").textContent
+    );
+    level = pacientes[i].querySelector(".info-level");
+    imcs = pacientes[i].querySelector(".info-imc");
+    let valorImc = validacao(pcpeso, pcaltura, i);
+    imcs.textContent = valorImc;
+    levelImc(valorImc, level);
+  }
+} 
 export function imc(peso, altura) {
   let resultado = peso / (altura * altura);
   return resultado.toFixed(2);
+}
+function levelImc(value, level) {
+  if (value >= 18.5 && value <= 24.9) {
+    level.classList.add("normal");
+  }
+  if (value >= 25 && value <= 29.9) {
+    level.classList.add("warning");
+  }
+  if (value >= 30 && value <= 34.9) {
+    level.classList.add("danger");
+  }
+  if (value >= 35) {
+    level.classList.add("mortal");
+  }
+  if(value < 18.5) {
+    level.classList.add('thin');
+  }
 }
 export function validacao(peso, altura, i) {
   if (peso <= 0 || peso >= 1000) {
@@ -32,27 +55,27 @@ export function validacao(peso, altura, i) {
 }
 
 function converterStringOfInt(valor) {
-  return isInteger(Number(valor))
-    ? parseInt(valor, 10)
-    : parseFloat(valor);
+  return isInteger(Number(valor)) ? parseInt(valor, 10) : parseFloat(valor);
 }
 function isInteger(n) {
   return n === +n && n === (n | 0);
 }
 
 export function tempo() {
-    const barra = document.querySelector('.barra');
-    const message = document.querySelector('.message')
-    if(barra) {
-        let tamanho = 100;
-        const interval = setInterval(function() {
-          let time = tamanho--;
-          barra.style.width = `${time}%`;
-          if(time == 0) {
-              clearInterval(interval);
-              message.classList.remove('show');
-              message.classList.add('hidden');
-          }
-        }, 100);
-    }
+  const barra = document.querySelector(".barra");
+  const message = document.querySelector(".message");
+  if (barra) {
+    let tamanho = 100;
+    const interval = setInterval(function () {
+      let time = tamanho--;
+      barra.style.width = `${time}%`;
+      if (time == 0) {
+        clearInterval(interval);
+        message.classList.remove("show");
+        message.classList.add("hidden");
+      }
+    }, 100);
+  }
 }
+
+principal();

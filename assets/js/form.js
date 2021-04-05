@@ -1,7 +1,6 @@
 const peso = document.querySelector("[data-form-peso]");
 const altura = document.querySelector("[data-form-altura]");
-import { imc, tempo } from "./principal.js";
-
+import { imc, tempo, principal}  from "./principal.js";
 export const main = (evento) => {
   evento.preventDefault();
   const form = document.querySelector("[data-form]");
@@ -25,6 +24,7 @@ function add(pacient) {
   tabela.appendChild(pacientetr);
   message();
   tempo();
+  principal();
 }
 
 function obterdados(form) {
@@ -46,12 +46,14 @@ function criartr(pacient) {
   let alturatd = criartd(pacient.alturas, "info-altura");
   let gorduratd = criartd(pacient.gordura, "info-gordura");
   let imctd = criartd(imc(pacient.pesos.replace(",", "."), pacient.alturas.replace(",", ".")), "info-imc");
+  let level = criartd("", "info-level");
 
   pacientetr.appendChild(nometd);
   pacientetr.appendChild(pesotd);
   pacientetr.appendChild(alturatd);
   pacientetr.appendChild(gorduratd);
   pacientetr.appendChild(imctd);
+  pacientetr.appendChild(level);
 
   return pacientetr;
 }
